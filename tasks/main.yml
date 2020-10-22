@@ -2,7 +2,7 @@
 # tasks file for configure_resource_tags
 
 - name: Get list of instances
-  community.aws.ec2_instance_info:
+  community.aws.ec2_instance_facts:
     filters:
       "vpc-id": "{{ vpc_id }}"
   register: ec2_list
