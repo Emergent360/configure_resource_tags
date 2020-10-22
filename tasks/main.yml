@@ -4,7 +4,7 @@
 - name: Get list of instances
   community.aws.ec2_instance_info:
     filters:
-      "tag:Name": "{{ instance_name }}"
+      "vpc-id": "{{ vpc_id }}"
   register: ec2_list
 
 - debug: msg="{{ ec2_list }}"
