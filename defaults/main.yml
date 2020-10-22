@@ -1,2 +1,3 @@
 ---
 # defaults file for configure_resource_tags
+ec2_region: us-east-1

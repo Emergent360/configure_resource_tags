@@ -1,18 +1,18 @@
 ---
 # tasks file for configure_resource_tags
 
-- name: Get list of instances
-  community.aws.ec2_instance_facts:
-    filters:
-      "vpc-id": "{{ vpc_id }}"
-  register: ec2_list
+#- name: Get list of instances
+#  community.aws.ec2_instance_facts:
+#    filters:
+#      "vpc-id": "{{ vpc_id }}"
+#  register: ec2_list
+#
+#- debug: msg="{{ ec2_list }}"
 
-- debug: msg="{{ ec2_list }}"
-
-#- name: Ensure sched tags are present
-#  amazon.aws.ec2_tag:
-#    region: "{{ ec2_region }}"
-#    resource: vol-XXXXXX
-#    state: present
-#    tags:
-#      "{{ tag_name }}": "{{ tag_value }}"
+- name: Ensure sched tags are present
+  amazon.aws.ec2_tag:
+    region: "{{ ec2_region }}"
+    resource: "{{ ec2_id }}"
+    state: present
+    tags:
+      "{{ tag_name }}": "{{ tag_value }}"
